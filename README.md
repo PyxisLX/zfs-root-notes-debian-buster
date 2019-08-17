@@ -31,8 +31,7 @@ efibootmgr -c -g -d /dev/vda -p 2 -L "debian-disk0" -l '\EFI\debian\grubx64.efi'
 efibootmgr -c -g -d /dev/vdb -p 2 -L "debian-disk1" -l '\EFI\debian\grubx64.efi'
 ```
 5. (Optional) Disable swap in /etc/fstab
-
-  systemd might stuck while enabling swap and I don't need that. Just disable that.
+- Systemd might get stuck while enabling swap and I don't need that. Just disable that.
 
 ## Notes on EFI shell
 If something failed and you've dropped onto EFI shell, you need to find and execute 'grubx64.efi'. The basic manipulations are:
