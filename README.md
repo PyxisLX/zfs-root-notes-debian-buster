@@ -33,42 +33,38 @@ efibootmgr -c -g -d /dev/vdb -p 2 -L "debian-disk1" -l '\EFI\debian\grubx64.efi'
 
   systemd might stuck while enabling swap and I don't need that. Just disable that.
 
-## Caveats
-* EFI shell
-
-  If something failed and you've dropped onto EFI shell, you need to find and execute 'grubx64.efi'. The basic manipulations are:
-  - Find the device mapping
+## Notes on EFI shell
+If something failed and you've dropped onto EFI shell, you need to find and execute 'grubx64.efi'. The basic manipulations are:
+- Find the device mapping
 ```
 map
 ```
-  - Navigate the contents of the 1st ESP
+- Navigate the contents of the 1st ESP
 ```
 ls fs1:
 ```
-  - Execute grubx64.efi, location might vary
+- Execute grubx64.efi, location might vary
 ```
 fs0:\EFI\debian\grubx64.efi
 ```
 
-* grub CLI
+## Notes on grub CLI
 
-  If your grub fails to load its configfile, the basic manipulations are:
+If your grub fails to load its configfile, the basic manipulations are:
 
-  - Install grub modules:
+- Load grub modules:
 ```
 insmod zfs
 insmod linux
 insmod initrd
 ```
 
-  - Locate grub.cfg, it shoud be in your rpool's /boot directory.
-
-  - Load grub configfile, again location might vary.
+- Locate grub.cfg, it shoud be in your rpool's /boot directory.
+- Load grub configfile, again location might vary.
 ```
 configfile (hd0,gpt3)/ROOT/debian-buster@/boot/grub/grub.cfg
 ```
-
-  - Invalid grub.cfg, you need to load kernel and initrd manually
+- Invalid grub.cfg, you need to load kernel and initrd manually
 
 ```
 linux $YOUR_KERNEL_LOCATION
