@@ -3,7 +3,8 @@ Some notes regarding zfs root on debian buster.
 
 ## Install the base system
 
-* Using debian-buster-zfs-root to install the base system.
+* Using [debian-buster-zfs-root.sh](https://github.com/hn/debian-buster-zfs-root/blob/master/debian-buster-zfs-root.sh) to install the base system.
+
 
 ## Serial console configuration
 
