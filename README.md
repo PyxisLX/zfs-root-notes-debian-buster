@@ -48,6 +48,8 @@ ls fs1:
 ```
 fs0:\EFI\debian\grubx64.efi
 ```
+- The EFI shell escape charactor is '^'
+
 
 ## Notes on grub CLI
 
