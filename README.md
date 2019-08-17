@@ -36,18 +36,18 @@ systemd might stuck while enabling swap and I don't need that. Just disable that
 ## Caveats
 * EFI shell
 
- If something failed and you've dropped onto EFI shell, you need to find and execute 'grubx64.efi'. The basic manipulations are:
- * Find the device mapping
+    If something failed and you've dropped onto EFI shell, you need to find and execute 'grubx64.efi'. The basic manipulations are:
+  - Find the device mapping
 ```
 map
 ```
 
- * Navigate the contents of the 1st ESP
+  - Navigate the contents of the 1st ESP
 ```
 ls fs1:
 ```
 
- * Location might vary
+  - Execute grubx64.efi, location might vary
 ```
 fs0:\EFI\debian\grubx64.efi
 ```
@@ -56,21 +56,21 @@ fs0:\EFI\debian\grubx64.efi
 
  If your grub fails to load its configfile, the basic manipulations are:
 
- * Install grub modules:
+  - Install grub modules:
 ```
 insmod zfs
 insmod linux
 insmod initrd
 ```
 
- * Locate grub.cfg, it shoud be in your rpool's /boot directory.
+  - Locate grub.cfg, it shoud be in your rpool's /boot directory.
 
- * Load grub configfile, again location might vary.
+  - Load grub configfile, again location might vary.
 ```
 configfile (hd0,gpt3)/ROOT/debian-buster@/boot/grub/grub.cfg
 ```
 
- * Invalid grub.cfg, you need to load kernel and initrd manually
+  - Invalid grub.cfg, you need to load kernel and initrd manually
 
 ```
 linux $YOUR_KERNEL_LOCATION
